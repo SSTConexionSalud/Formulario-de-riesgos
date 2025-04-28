@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta para la Identificación de Peligros, Valoración de Riesgos y Determinación de Controles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Google API -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client"></script>
+</head>
+<body>
+    <div class="container" id="formContainer">
+        <div class="header">
+            <div class="header-title">
+                <h1>ENCUESTA PARA LA IDENTIFICACIÓN DE PELIGROS, VALORACIÓN DE RIESGOS Y DETERMINACIÓN DE CONTROLES</h1>
+            </div>
+            <div class="header-info">
+                <p><strong>Código:</strong> SST-F-027</p>
+                <p><strong>Versión:</strong> 001</p>
+                <p><strong>Vigencia:</strong> 19/06/2024</p>
+            </div>
+        </div>
+
+        <div class="objective">
+            <p><strong>Objetivo general:</strong> Identificar peligros, valorar riesgos y determinar controles relacionadas con las actividades realizadas en Fundación Conexión Salud MAESVI.</p>
+            <p>La siguiente encuesta se realiza con el fin de identificar los peligros a los que usted se encuentra expuesto, por tal razón necesitamos de su colaboración suministrando información veraz para mejorar las condiciones de su lugar de trabajo, es de resaltar que esta es de tipo confidencial.</p>
+            <p>En esta encuesta usted encontrará preguntas donde deberá marcar con una x, si su respuesta es afirmativa o negativa, en algunas con su respectiva justificación.</p>
+        </div>
+
+        <form id="riskForm">
+            <div class="form-content" id="formContent">
+                <!-- Información del encuestador y trabajador -->
+                <div class="section">
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="encuestador">NOMBRE DE LA O EL ENCUESTADOR:</label>
+                            <input type="text" id="encuestador" name="encuestador" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="trabajador">NOMBRE DE LA O EL TRABAJADOR:</label>
+                            <input type="text" id="trabajador" name="trabajador" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="proceso">PROCESO:</label>
+                            <input type="text" id="proceso" name="proceso" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cargo">CARGO:</label>
+                            <input type="text" id="cargo" name="cargo" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lugar">LUGAR DONDE REALIZA LAS ACTIVIDADES:</label>
+                            <input type="text" id="lugar" name="lugar" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="horas">HORAS TRABAJADAS:</label>
+                            <input type="text" id="horas" name="horas" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha">FECHA:</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Descripción de actividades -->
+                <div class="section">
+                    <h2>Descripción de las actividades (En forma clara, concisa y en orden lógico de acuerdo a su realización)</h2>
+                    <table class="activities-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">No.</th>
+                                <th rowspan="2">ACTIVIDAD</th>
+                                <th colspan="2">RUTINARIAS</th>
+                                <th colspan="2">PELIGROSA</th>
+                            </tr>
+                            <tr>
+                                <th>SI</th>
+                                <th>NO</th>
+                                <th>SI</th>
+                                <th>NO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 10 filas para actividades -->
+                            <tr>
+                                <td>1</td>
+                                <td><input type="text" name="actividad_1"></td>
+                                <td><input type="radio" name="rutinaria_1" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_1" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_1" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_1" value="NO"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><input type="text" name="actividad_2"></td>
+                                <td><input type="radio" name="rutinaria_2" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_2" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_2" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_2" value="NO"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><input type="text" name="actividad_3"></td>
+                                <td><input type="radio" name="rutinaria_3" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_3" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_3" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_3" value="NO"></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><input type="text" name="actividad_4"></td>
+                                <td><input type="radio" name="rutinaria_4" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_4" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_4" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_4" value="NO"></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><input type="text" name="actividad_5"></td>
+                                <td><input type="radio" name="rutinaria_5" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_5" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_5" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_5" value="NO"></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><input type="text" name="actividad_6"></td>
+                                <td><input type="radio" name="rutinaria_6" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_6" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_6" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_6" value="NO"></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><input type="text" name="actividad_7"></td>
+                                <td><input type="radio" name="rutinaria_7" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_7" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_7" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_7" value="NO"></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><input type="text" name="actividad_8"></td>
+                                <td><input type="radio" name="rutinaria_8" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_8" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_8" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_8" value="NO"></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><input type="text" name="actividad_9"></td>
+                                <td><input type="radio" name="rutinaria_9" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_9" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_9" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_9" value="NO"></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><input type="text" name="actividad_10"></td>
+                                <td><input type="radio" name="rutinaria_10" value="SI"></td>
+                                <td><input type="radio" name="rutinaria_10" value="NO"></td>
+                                <td><input type="radio" name="peligrosa_10" value="SI"></td>
+                                <td><input type="radio" name="peligrosa_10" value="NO"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Listado de factores de riesgo -->
+                <div class="section">
+                    <h2>A continuación encontrará un listado de factores de riesgo de los cuales usted tendrá que indicar si está expuesto, si llegara a ser afirmativa su respuesta indique cuál es la condición que lo genera y cuántas horas al día está expuesto.</h2>
+                    <table class="risks-table">
+                        <thead>
+                            <tr>
+                                <th>N</th>
+                                <th>Peligro</th>
+                                <th>Descripción</th>
+                                <th>Si/No/NA</th>
+                                <th>Condición que lo genera</th>
+                                <th>Exposición (horas/día)</th>
+                                <th>Efectos posibles/ observaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Físico -->
+                            <tr>
+                                <td>1</td>
+                                <td rowspan="6">Físico</td>
+                                <td>Está expuesto a Ruido</td>
+                                <td>
+                                    <select name="riesgo_1">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_1"></td>
+                                <td><input type="number" name="exposicion_1" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_1"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Su puesto de trabajo tiene una iluminación inadecuada</td>
+                                <td>
+                                    <select name="riesgo_2">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_2"></td>
+                                <td><input type="number" name="exposicion_2" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_2"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Cuando realiza su trabajo tiene vibración de cuerpo entero (Global), segmentada (mano, brazo)</td>
+                                <td>
+                                    <select name="riesgo_3">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_3"></td>
+                                <td><input type="number" name="exposicion_3" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_3"></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Está expuesto a Radiaciones ionizantes (rayos x, gama, beta y alfa)</td>
+                                <td>
+                                    <select name="riesgo_4">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_4"></td>
+                                <td><input type="number" name="exposicion_4" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_4"></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Radiaciones no ionizantes (láser, ultravioleta infraroja)</td>
+                                <td>
+                                    <select name="riesgo_5">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_5"></td>
+                                <td><input type="number" name="exposicion_5" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_5"></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Está expuesto a temperaturas extremas (frío - calor)</td>
+                                <td>
+                                    <select name="riesgo_6">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_6"></td>
+                                <td><input type="number" name="exposicion_6" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_6"></td>
+                            </tr>
+
+                            <!-- Químico -->
+                            <tr>
+                                <td>7</td>
+                                <td rowspan="5">Químico</td>
+                                <td>Está expuesto a sólidos, líquidos, gases y vapores que afecten su salud</td>
+                                <td>
+                                    <select name="riesgo_7">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_7"></td>
+                                <td><input type="number" name="exposicion_7" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_7"></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Está expuesto al derrame y contacto con sustancias químicas</td>
+                                <td>
+                                    <select name="riesgo_8">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_8"></td>
+                                <td><input type="number" name="exposicion_8" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_8"></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Está expuesto a la Ingestión de sustancias químicas</td>
+                                <td>
+                                    <select name="riesgo_9">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_9"></td>
+                                <td><input type="number" name="exposicion_9" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_9"></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>En su área de trabajo se almacena material combustible o inflamable</td>
+                                <td>
+                                    <select name="riesgo_10">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_10"></td>
+                                <td><input type="number" name="exposicion_10" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_10"></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Está expuesto a vapores combustibles</td>
+                                <td>
+                                    <select name="riesgo_11">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_11"></td>
+                                <td><input type="number" name="exposicion_11" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_11"></td>
+                            </tr>
+
+                            <!-- Biológico -->
+                            <tr>
+                                <td>12</td>
+                                <td rowspan="4">Biológico</td>
+                                <td>Está expuesto al contacto con virus, bacterias, hongos</td>
+                                <td>
+                                    <select name="riesgo_12">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_12"></td>
+                                <td><input type="number" name="exposicion_12" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_12"></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Está expuesto a parásitos</td>
+                                <td>
+                                    <select name="riesgo_13">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_13"></td>
+                                <td><input type="number" name="exposicion_13" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_13"></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>Está expuesto a fluidos o excrementos</td>
+                                <td>
+                                    <select name="riesgo_14">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_14"></td>
+                                <td><input type="number" name="exposicion_14" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_14"></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>Está expuesto a picaduras de animales y/o insectos</td>
+                                <td>
+                                    <select name="riesgo_15">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_15"></td>
+                                <td><input type="number" name="exposicion_15" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_15"></td>
+                            </tr>
+
+                            <!-- Psicosocial -->
+                            <tr>
+                                <td>16</td>
+                                <td rowspan="13">Psicosocial</td>
+                                <td>Su trabajo es repetitivo y monótono</td>
+                                <td>
+                                    <select name="riesgo_16">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_16"></td>
+                                <td><input type="number" name="exposicion_16" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_16"></td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>Tiene una carga de trabajo elevada</td>
+                                <td>
+                                    <select name="riesgo_17">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_17"></td>
+                                <td><input type="number" name="exposicion_17" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_17"></td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>Su trabajo exige alto nivel de concentración</td>
+                                <td>
+                                    <select name="riesgo_18">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_18"></td>
+                                <td><input type="number" name="exposicion_18" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_18"></td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>Tiene un ritmo de trabajo con tiempos de entrega</td>
+                                <td>
+                                    <select name="riesgo_19">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_19"></td>
+                                <td><input type="number" name="exposicion_19" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_19"></td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>Está expuesto a turnos extensos</td>
+                                <td>
+                                    <select name="riesgo_20">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_20"></td>
+                                <td><input type="number" name="exposicion_20" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_20"></td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td>Tiene muchas horas extras de trabajo</td>
+                                <td>
+                                    <select name="riesgo_21">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_21"></td>
+                                <td><input type="number" name="exposicion_21" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_21"></td>
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td>Durante su trabajo tiene pausas y descansos</td>
+                                <td>
+                                    <select name="riesgo_22">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_22"></td>
+                                <td><input type="number" name="exposicion_22" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_22"></td>
+                            </tr>
+                            <tr>
+                                <td>23</td>
+                                <td>Las relaciones jerárquicas son complejas</td>
+                                <td>
+                                    <select name="riesgo_23">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_23"></td>
+                                <td><input type="number" name="exposicion_23" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_23"></td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td>Existe cooperación en su área de trabajo</td>
+                                <td>
+                                    <select name="riesgo_24">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_24"></td>
+                                <td><input type="number" name="exposicion_24" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_24"></td>
+                            </tr>
+                            <tr>
+                                <td>25</td>
+                                <td>Su cargo exige continua toma de decisiones</td>
+                                <td>
+                                    <select name="riesgo_25">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_25"></td>
+                                <td><input type="number" name="exposicion_25" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_25"></td>
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td>Su tipo de contrato implica inestabilidad laboral</td>
+                                <td>
+                                    <select name="riesgo_26">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_26"></td>
+                                <td><input type="number" name="exposicion_26" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_26"></td>
+                            </tr>
+                            <tr>
+                                <td>27</td>
+                                <td>Las relaciones interpersonales son complicadas</td>
+                                <td>
+                                    <select name="riesgo_27">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_27"></td>
+                                <td><input type="number" name="exposicion_27" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_27"></td>
+                            </tr>
+                            <tr>
+                                <td>28</td>
+                                <td>Tiene supervisión extrema</td>
+                                <td>
+                                    <select name="riesgo_28">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_28"></td>
+                                <td><input type="number" name="exposicion_28" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_28"></td>
+                            </tr>
+
+                            <!-- Biomecánico -->
+                            <tr>
+                                <td>29</td>
+                                <td rowspan="4">Biomecánico</td>
+                                <td>Presenta Postura (prolongada mantenida, forzada)</td>
+                                <td>
+                                    <select name="riesgo_29">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_29"></td>
+                                <td><input type="number" name="exposicion_29" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_29"></td>
+                            </tr>
+                            <tr>
+                                <td>30</td>
+                                <td>Realiza esfuerzos</td>
+                                <td>
+                                    <select name="riesgo_30">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_30"></td>
+                                <td><input type="number" name="exposicion_30" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_30"></td>
+                            </tr>
+                            <tr>
+                                <td>31</td>
+                                <td>Realiza movimientos repetitivos</td>
+                                <td>
+                                    <select name="riesgo_31">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_31"></td>
+                                <td><input type="number" name="exposicion_31" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_31"></td>
+                            </tr>
+                            <tr>
+                                <td>32</td>
+                                <td>Realiza manipulación manual de cargas</td>
+                                <td>
+                                    <select name="riesgo_32">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_32"></td>
+                                <td><input type="number" name="exposicion_32" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_32"></td>
+                            </tr>
+
+                            <!-- Desastres Naturales -->
+                            <tr>
+                                <td>33</td>
+                                <td>Desastres Naturales</td>
+                                <td>Está expuesto a terremotos, sismos</td>
+                                <td>
+                                    <select name="riesgo_33">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_33"></td>
+                                <td><input type="number" name="exposicion_33" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_33"></td>
+                            </tr>
+
+                            <!-- Condiciones de seguridad -->
+                            <tr>
+                                <td>34</td>
+                                <td rowspan="6">Condiciones de seguridad</td>
+                                <td>Mecánico (utiliza elementos de máquinas, herramientas, piezas a trabajar, materiales proyectados sólidos o fluidos)</td>
+                                <td>
+                                    <select name="riesgo_34">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_34"></td>
+                                <td><input type="number" name="exposicion_34" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_34"></td>
+                            </tr>
+                            <tr>
+                                <td>35</td>
+                                <td>Eléctrico (está expuesto a alta y baja tensión, estática)</td>
+                                <td>
+                                    <select name="riesgo_35">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_35"></td>
+                                <td><input type="number" name="exposicion_35" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_35"></td>
+                            </tr>
+                            <tr>
+                                <td>36</td>
+                                <td>Locativo (está expuesto a almacenamiento, superficies de trabajo irregularidades, deslizantes, con diferencia de nivel, condiciones de orden y aseo, caídas de objeto)</td>
+                                <td>
+                                    <select name="riesgo_36">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_36"></td>
+                                <td><input type="number" name="exposicion_36" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_36"></td>
+                            </tr>
+                            <tr>
+                                <td>37</td>
+                                <td>Tecnológico (está expuesto a explosión, fuga, derrame, incendio)</td>
+                                <td>
+                                    <select name="riesgo_37">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_37"></td>
+                                <td><input type="number" name="exposicion_37" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_37"></td>
+                            </tr>
+                            <tr>
+                                <td>38</td>
+                                <td>Está expuesto a accidentes de tránsito</td>
+                                <td>
+                                    <select name="riesgo_38">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_38"></td>
+                                <td><input type="number" name="exposicion_38" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_38"></td>
+                            </tr>
+                            <tr>
+                                <td>39</td>
+                                <td>Públicos (está expuesto a robos, atracos, asaltos, atentados, desorden público, etc.)</td>
+                                <td>
+                                    <select name="riesgo_39">
+                                        <option value="">Seleccione</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                        <option value="NA">NA</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="condicion_39"></td>
+                                <td><input type="number" name="exposicion_39" min="0" max="24"></td>
+                                <td><input type="text" name="efectos_39"></td>
+                            </tr>
+
+                            <!-- Otros peligros -->
+                            <tr>
+                                <td>40</td>
+                                <td colspan="2">Indique a que otro peligro cree usted que está expuesto</td>
+                                <td colspan="4"><input type="text" name="otro_peligro" class="full-width"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Actividades y medidas -->
+                <div class="section">
+                    <div class="activities-section">
+                        <div class="activities-column">
+                            <h3>Mencione que actividades se han desarrollado para disminuir los riesgos</h3>
+                            <textarea name="actividades" rows="10" class="full-width"></textarea>
+                        </div>
+                        <div class="activities-column">
+                            <h3>Mencione que medidas de intervención se pueden implementar para disminuir el riesgo</h3>
+                            <textarea name="medidas" rows="10" class="full-width"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información adicional del trabajador -->
+                <div class="section">
+                    <h3>Información adicional</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" id="submitBtn" class="submit-btn">ENVIAR FORMULARIO</button>
+            </div>
+        </form>
+        
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-spinner"></div>
+            <p>Procesando formulario...</p>
+        </div>
+        
+        <div id="successMessage" class="success-message">
+            <h2>¡Formulario guardado con éxito!</h2>
+            <p>El formulario ha sido guardado en Google Drive y descargado en su dispositivo.</p>
+            <button id="closeSuccessBtn">Cerrar</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
